@@ -21,15 +21,16 @@ export default function Paint() {
     useEffect(
         Color, []
     )
-    console.log(colors)
 
     return (
         <div>
-            <h1 style={{ color: `${active}` }}>Paint App</h1>
+            <h1 style={{ color: `${active}` }} >Paint App</h1>
+            <div className="color-div" style={{backgroundColor: `${active}`}}></div>
             
             <ColorPick colors={colors} active={active}
               setActive={setActive}
             />
+           <hr />
         </div>
     )
 

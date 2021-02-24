@@ -4,9 +4,7 @@ import './App.css';
 export default function ColorPick({ colors = [], active, setActive }) {
 
     return (
-
-        <div>
-
+        <div style={{textAlign: "center"}}>
             {colors.map((color, i) =>
             (
                 <label key={i} style={{ color: color }}>
