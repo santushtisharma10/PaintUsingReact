@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import randomColor from "randomcolor"
 import ColorPick from "./ColorPick"
-
-export default function Paint() {    
+import Area from "./PaintArea"
+export default function Paint() {
 
     const [colors, setColors] = useState([])
     const [active, setActive] = useState(null)
-
+    const [val, setVal] = useState(true)
 
     const Color = () => {
         const color = randomColor().slice(1)
@@ -17,21 +17,31 @@ export default function Paint() {
                 setActive(res.colors[0].hex.value)
             })
     }
-
+    /*Whenever the user hits the button 'change the color' shades of different color are shown*/
     useEffect(
-        Color, []
+        Color, [val]
     )
+
+    const valRef = useRef({height : 0})
 
     return (
         <div>
+            <header ref={valRef}>
             <h1 style={{ color: `${active}` }} >Paint App</h1>
-            <div className="color-div" style={{backgroundColor: `${active}`}}></div>
-            
+            <br/>
+            <div className="color-div" style={{ backgroundColor: `${active}` }}></div>
+
+            {/* ColorPick is the function as the name suggest is the palette to pick the color*/}
             <ColorPick colors={colors} active={active}
-              setActive={setActive}
+                setActive={setActive}
             />
-           <hr />
+            <button onClick={() => setVal(!val)}>change the color</button>
+            <hr />
+            </header>
+            <Area height={window.innerHeight-valRef.current.height}/>
         </div>
     )
+
+
 
 }

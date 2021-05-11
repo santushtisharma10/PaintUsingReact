@@ -18,8 +18,8 @@ span {
   content: '';
   border-radius: 50%;
   display: inline-block;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   margin: 5px 35px;
   border: 2px solid black;
   transition: 0.3s;
@@ -31,7 +31,7 @@ label {
 
 input:checked + span {
   
-    width: 4.5rem;
-    height: 4.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   
 }

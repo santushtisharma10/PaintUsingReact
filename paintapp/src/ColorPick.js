@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import randomColor from "randomcolor"
 import './App.css';
-export default function ColorPick({ colors = [], active, setActive }) {
+export default function ColorPick({ colors, active, setActive }) {
 
     return (
         <div style={{textAlign: "center"}}>
